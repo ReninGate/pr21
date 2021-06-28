@@ -1,0 +1,47 @@
+import string
+
+
+def capitalize(word):
+    word = list(word)
+    word[0] = word[0].upper()
+    word[-1] = word[-1].upper()
+    res = ''
+    for i in word:
+        res += i
+    return res
+
+
+def numbers(array):
+    maximal = 0
+    another_array = []
+    for i in range(1, len(array)):
+        if array[i] > array[maximal]:
+            maximal = i
+    print('Maximal number in array is ' + str(array[maximal]))
+    for i in range(len(array)):
+        if array[maximal] != array[i]:
+            array[i] = array[i] ** (i+1)
+            another_array.append(array[i])
+        else:
+            continue
+    print(another_array)
+
+
+a = [1, 'hello', 2, 'world', 3]
+b = []
+c = []
+d = []
+for i in a:
+    if isinstance(i, str):
+        b.append(i)
+    else:
+        c.append(i)
+
+print(b)
+print(c)
+
+for i in range(len(b)):
+    b[i] = capitalize(b[i])
+print(b)
+
+numbers(c)
